@@ -16,7 +16,7 @@ module CarrierWave
       end
 
       module ClassMethods
-        
+
         def _before_callbacks_for(kind) #:nodoc:
           (self._before_callbacks || { kind => [] })[kind] || []
         end
@@ -25,7 +25,7 @@ module CarrierWave
           (self._after_callbacks || { kind => [] })[kind] || []
         end
 
-        def before(kind, callback)          
+        def before(kind, callback)
           self._before_callbacks ||= {}
           self._before_callbacks[kind] = _before_callbacks_for(kind) + [callback]
         end
