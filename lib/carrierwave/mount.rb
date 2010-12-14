@@ -292,7 +292,7 @@ module CarrierWave
         uploader.cache!(new_file)
         @integrity_error = nil
         @processing_error = nil
-        old_file.delete
+        old_file.delete if old_file
       rescue CarrierWave::IntegrityError => e
         @integrity_error = e
         raise e unless option(:ignore_integrity_errors)
